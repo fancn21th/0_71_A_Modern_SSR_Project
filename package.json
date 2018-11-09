@@ -1,0 +1,29 @@
+{
+  "name": "modern_ssr_project",
+  "version": "1.0.0",
+  "description": "React/Material-UI/Next, Express/Node, Mongoose/MongoDB.",
+  "scripts": {
+    "build": "next build",
+    "start": "next start",
+    "dev": "next"
+  },
+  "dependencies": {
+    "@material-ui/core": "^3.3.1",
+    "next": "^7.0.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-jss": "^8.6.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fancn21th/0_71_A_Modern_SSR_Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fancn21th/0_71_A_Modern_SSR_Project/issues"
+  },
+  "homepage": "https://github.com/fancn21th/0_71_A_Modern_SSR_Project#readme"
+}
