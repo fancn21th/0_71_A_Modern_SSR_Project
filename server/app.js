@@ -1,11 +1,25 @@
 import express from 'express';
+import next from 'next';
 
-const server = express();
+const port = process.env.PORT || 8000;
+const ROOT_URL = process.env.ROOT_URL || `http://localhost:${port}`;
 
-server.get('/', (req, res) => {
-  res.send('My express server');
-});
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+const handle = app.getRequestHandler();
 
-server.listen(3000, () => {
-  console.log('Ready on port 3000!');  // eslint-disable-line no-console
+app.prepare().then(() => {
+  const server = express();
+
+  server.get('/', (req, res) => {
+    const user = { email: 'team@builderbook.org' };
+    app.render(req, res, '/', { user });
+  });
+
+  server.get('*', (req, res) => handle(req, res));
+
+  server.listen(port, (err) => {
+    if (err) throw err;
+    console.log(`> Ready on ${ROOT_URL}`); // eslint-disable-line no-console
+  });
 });
